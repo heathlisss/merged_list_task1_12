@@ -50,16 +50,17 @@ def write_list_to_file(result_list, file_name):
         file.write(' '.join(map(str, result_list)))
 
 
+print('Введите название файла:')
+name = input()
 print('Выберите вариантслияния (1 или 2): ')
 flag = input()
-print(flag)
-list1, list2 = read_lists_from_file('test1.txt')
+list1, list2 = read_lists_from_file(name + '.txt')
 result_list = []
 if flag == '1':
     result_list = merge_lists(list1, list2)
-    write_list_to_file(result_list, 'merged_list_1.txt')
+    write_list_to_file(result_list, name + '_merged_list_1.txt')
 elif flag == '2':
     result_list = merge_all_elements_into_a_list(list1, list2)
-    write_list_to_file(result_list, 'merged_list_2.txt')
+    write_list_to_file(result_list, name + '_merged_list_2.txt')
 else:
     print('не верные данные')
